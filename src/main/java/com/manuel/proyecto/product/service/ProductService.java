@@ -25,6 +25,7 @@ public class ProductService {
     }
 
     public void saveProduct(Product product) throws InvalidProductException {
+        ProductValidator.validateProduct(product);
         if (productRepository.existsById(product.getId())) {
             productRepository.save(product);
             System.out.println("Producto con ID " + product.getId() + " guardado correctamente.");
@@ -45,6 +46,7 @@ public class ProductService {
     }
 
     public void updateProduct(Product product) throws InvalidProductException {
+        ProductValidator.validateProduct(product);
         Optional<Product> optionalProduct = productRepository.findById(product.getId());
         if (optionalProduct.isPresent()) {
             productRepository.update(Optional.of(product));
