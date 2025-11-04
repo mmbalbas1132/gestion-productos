@@ -67,6 +67,9 @@ public class ProductRepository {
      * @return lista de productos de la categoría especificada
      */
     public List<Product> findByCategory(String category) {
+        if (category == null) {
+            return new ArrayList<>();
+        }
         return products.values().stream()
                 .filter(p -> p.getCategory() != null && p.getCategory().equalsIgnoreCase(category))
                 .collect(Collectors.toList());
@@ -79,6 +82,9 @@ public class ProductRepository {
      * @return lista de productos que coinciden con el nombre
      */
     public List<Product> findByNameContaining(String name) {
+        if (name == null) {
+            return new ArrayList<>();
+        }
         return products.values().stream()
                 .filter(p -> p.getName() != null && 
                         p.getName().toLowerCase().contains(name.toLowerCase()))

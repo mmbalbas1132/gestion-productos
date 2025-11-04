@@ -42,7 +42,7 @@ public class ProductService {
      */
     public Product updateProduct(Long id, Product updatedProduct) {
         Optional<Product> existingProduct = repository.findById(id);
-        if (!existingProduct.isPresent()) {
+        if (existingProduct.isEmpty()) {
             throw new IllegalArgumentException("Producto con ID " + id + " no encontrado");
         }
         
