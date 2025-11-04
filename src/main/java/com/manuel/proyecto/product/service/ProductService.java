@@ -44,7 +44,7 @@ public class ProductService {
         }
     }
 
-    public  void updateProduct(Product product) throws InvalidProductException {
+    public void updateProduct(Product product) throws InvalidProductException {
         Optional<Product> optionalProduct = productRepository.findById(product.getId());
         if (optionalProduct.isPresent()) {
             productRepository.update(Optional.of(product));
@@ -52,3 +52,5 @@ public class ProductService {
         } else {
             throw new InvalidProductException("El producto con ID " + product.getId() + " no existe.");
         }
+    }
+}
