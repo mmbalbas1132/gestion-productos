@@ -1,15 +1,16 @@
 package com.manuel.proyecto.product.interfaces;
 
+import com.manuel.proyecto.product.exceptions.InvalidProductException;
 import com.manuel.proyecto.product.model.Product;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface ProductRepository {
-    List<Product> findAll();
-    Optional<Product> findById(long id);
+    List<Product> findAll() throws InvalidProductException;
+    Optional<Product> findById(Long id);
     void save(Product product);
-    void deleteById(long id);
+    void deleteById(Long id);
     void update(Optional<Product> product);
-    boolean existsById(long id);
+    boolean existsById(Long id);
 }
