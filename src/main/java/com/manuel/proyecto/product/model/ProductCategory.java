@@ -1,8 +1,8 @@
 package com.manuel.proyecto.product.model;
 
 public enum ProductCategory {
-    ELECTRONICS,
+    ELECTRONICOS,
     COMIDAS,
-    LIBLROS,
-    OTORS
+    LIBROS,
+    OTROS
 }
